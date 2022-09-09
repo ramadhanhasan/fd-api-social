@@ -11,11 +11,11 @@ const server = http.createServer(app)
 const io = socketIo(server)
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../', 'view', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'view', 'index.html'));
 })
 
 const token = process.env.TWITTER_TOKEN;
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3300;
 const rulesUrl = process.env.RULES_URL;
 const streamUrl = process.env.STREAM_URL;
 const keyword = process.env.KEYWORD;
@@ -26,7 +26,6 @@ async function getKeyword() {
             Authorization: `Bearer ${token}`,
         },
     })
-    console.log(response.body,'RES')
     return response.body
 }
 

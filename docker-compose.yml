@@ -1,0 +1,13 @@
+version: "3.6"
+
+services:
+  fd-api-social:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/app
+    container_name: fd-api-social
+    restart: on-failure
+    ports:
+      - 3300:3300
