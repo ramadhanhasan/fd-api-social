@@ -1,13 +1,12 @@
 version: "3.6"
 
 services:
-  fd-api-social:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+  app:
+    image: fd-api-social
+    build: .
+    ports: 
+    - "3300:3300"
     volumes:
-      - ./:/app
-    container_name: fd-api-social
-    restart: on-failure
-    ports:
-      - 3300:3300
+    - "/etc/timezone:/etc/timezone:ro"
+    - "/etc/localtime:/etc/localtime:ro"
+    
